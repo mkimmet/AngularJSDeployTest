@@ -10,8 +10,14 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- task: ArchiveFiles@2
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)' 
   inputs:
-    rootFolderOrFile: '$(build.sourcesDirectory)'
-    includeRootFolder: false
-- task: PublishBuildArtifacts@1
+    contents: |
+      *.*
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+#- task: ArchiveFiles@2
+#  inputs:
+#    rootFolderOrFile: '$(build.sourcesDirectory)'
+#    includeRootFolder: false
+#- task: PublishBuildArtifacts@1
