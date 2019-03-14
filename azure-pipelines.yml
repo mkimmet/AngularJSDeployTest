@@ -13,7 +13,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     #sourceFolder: # Optional: Uses repo root by default
-    contents: '**/*'
+    contents: '*'
     targetFolder: $(Build.ArtifactStagingDirectory)
     cleanTargetFolder: true
 - task: PublishBuildArtifacts@1
